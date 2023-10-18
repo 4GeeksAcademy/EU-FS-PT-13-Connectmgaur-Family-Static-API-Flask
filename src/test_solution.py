@@ -61,7 +61,7 @@ def test_get_members_returns_list_of_five(client):
 
 @pytest.mark.it("Method GET /member/<int:id> should exist")
 def test_get_single_member_implemented(client):
-    response = client.get('/member/3443')
+    response = client.get('/member/21693234')
     assert response.status_code == 200
 
 @pytest.mark.it("Method GET /member/<int:id> should return a one single family member in a dictionary format")
@@ -95,13 +95,11 @@ def test_delete_member(client):
     response = client.delete('/member/3443')
     assert response.status_code == 200
 
+
 @pytest.mark.it("Method DELETE /member/3443 should return dictionary with 'done' key")
 def test_delete_response(client):
     client.post('/member', json={
-		"first_name": "Tommy",
-        "id": 3443,
-		"age": 23,
-		"lucky_numbers": [34,65,23,4,6]
+		
 	})
     response = client.delete('/member/3443')
     assert response.json["done"] == True

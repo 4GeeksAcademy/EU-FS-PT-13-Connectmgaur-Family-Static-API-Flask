@@ -55,7 +55,7 @@ class FamilyStructure:
             if member["id"] == id:
                 self._members.remove(member)
                 return True
-            return False
+        return False   
         # pass
 
     def update_member(self, id, member):
